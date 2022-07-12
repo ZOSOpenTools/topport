@@ -1,0 +1,17 @@
+#!/bin/sh
+#
+# Set up environment variables for general build tool to operate
+#
+if ! [ -f ./buildenv ]; then
+	echo "Need to source from the buildenv directory" >&2
+	return 0
+fi
+
+export ZOPEN_ROOT="${PWD}"
+export ZOPEN_TYPE="TARBALL"
+
+ZOPEN_TARBALL_DIR=top-3.7
+export ZOPEN_TARBALL_URL="https://sourceforge.net/projects/unixtop/files/unixtop/${ZOPEN_TARBALL_DIR}/${ZOPEN_TARBALL_DIR}.tar.gz"
+export ZOPEN_TARBALL_DEPS="curl gzip make m4"
+
+export ZOPEN_EXTRA_LDFLAGS=""
